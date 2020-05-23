@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/products")
-public class IndexController {
+@RequestMapping("/users")
+public class UserController {
 
     @Autowired
-    public IndexController() {
+    public UserController() {
     }
 
     @GetMapping
-    public String index(Model model) {
-        model.addAttribute("activePage", "Products");
-        return "index";
+    public String users(Model model) {
+        model.addAttribute("activePage", "Users");
+        return "users";
     }
 }
