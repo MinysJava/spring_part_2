@@ -40,12 +40,14 @@
     <!-- Top Header -->
     <div id="top-header">
         <div class="container">
-            <div class="header-links">
-                <ul>
-                    <li sec:authorize="isAnonymous()"><a th:href="@{/login}"><i class="fa fa-sign-in"></i> Login</a></li>
-                    <li sec:authorize="isAuthenticated()"><a th:href="@{/login}" th:action="@{logout}"> LogOut</a></li>
-                </ul>
-            </div>
+
+                <div class="header-links">
+                    <ul>
+                        <li sec:authorize="isAnonymous()"><a th:href="@{/login}"><i class="fa fa-sign-in"></i> Login</a></li>
+                        <li sec:authorize="isAuthenticated()"> <form  th:action="@{logout}" method="post"  > <button type="submit" class="logout-btn">Logout </button></form></li>
+                    </ul>
+                </div>
+
         </div>
     </div>
     <!-- /Top Header -->

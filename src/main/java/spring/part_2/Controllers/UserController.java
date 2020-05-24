@@ -49,8 +49,6 @@ public class UserController {
         return "user_form";
     }
 
-
-
     @PostMapping("/form")
     public String newUser(@Valid UserRepr user, BindingResult result) {
         if (result.hasErrors()) {
