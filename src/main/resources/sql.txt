@@ -1,0 +1,8 @@
+create table product (
+       id bigint not null auto_increment,
+        cost decimal(19,2),
+        title varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+
+INSERT INTO `spring_part_2`.`product` (`id`, `cost`, `title`) VALUES ('17', '170', 'item - 17');
