@@ -8,7 +8,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,20 +34,6 @@ public class ProductService {
     @Transactional(readOnly = true)
     public List<Product> getAllProducts(){
         return productRepository.findAll();
-    }
-
-    @Transactional(readOnly = true)
-    public Page<Product> getMinMaxProducts(Optional<BigDecimal> minPrice, Optional<BigDecimal> maxPrice, Pageable pageable){
-        if (minPrice.isPresent() && maxPrice.isPresent()) {
-            return productRepository.findByCostBetween(minPrice.get(), maxPrice.get(), pageable);
-        }
-        if (minPrice.isPresent()) {
-            return productRepository.findByCostGreaterThanEqual(minPrice.get(), pageable);
-        }
-        if (maxPrice.isPresent()) {
-            return productRepository.findByCostLessThanEqual(maxPrice.get(), pageable);
-        }
-        return productRepository.findAll(pageable);
     }
 
     @Transactional(readOnly = true)

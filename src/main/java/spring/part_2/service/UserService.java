@@ -1,5 +1,6 @@
 package spring.part_2.service;
 
+import spring.part_2.unit.Role;
 import spring.part_2.unit.User;
 import spring.part_2.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class UserService {
         user.setRoles(userRepr.getRoles());
         userRepository.save(user);
     }
+
 
     public List<UserRepr> findAll() {
         return userRepository.findAll().stream()

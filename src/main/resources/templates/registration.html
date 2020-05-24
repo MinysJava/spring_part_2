@@ -1,7 +1,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
@@ -34,44 +34,44 @@
 <body>
 <nav th:replace="header.html :: header (activePage=${activePage})"/>
 
-<!--<div class="container">-->
+<div class="container">
 
-    <!--<div class="widget subscribe-widget">-->
-        <!--<div class="widget-title">-->
-            <!--<h2 class="title">Log In</h2>-->
-        <!--</div>-->
-        <!--<div >-->
-            <!--<form th:action="@{/products}" method="POST" >-->
+    <div class="widget subscribe-widget">
+        <div class="widget-title">
+            <h2 class="title">Registration</h2>
+        </div>
+        <div >
+            <form th:action="@{/login/registration}" th:object="${user}" method="POST" >
 
-                <!--<div th:if="${param.error} != null">-->
-                    <!--<div >-->
-                        <!--Invalid username or password-->
-                    <!--</div>-->
+                <input th:type="hidden" th:field="*{id}">
+
+                <!--<div >-->
+                <input class="input" type="text" name="username" placeholder="username" th:field="*{username}">
                 <!--</div>-->
-                <!--<div th:if="${param.logout} != null">-->
-                    <!--<div >-->
-                        <!--You have been logged out.-->
-                    <!--</div>-->
+                <!--<div >-->
+                <input class="input" type="password" name="password" placeholder="password" th:field="*{password}">
+                <!--<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password don't match</p>-->
+
+                <input class="input" type="password" name="password" placeholder="password" th:field="*{matchingPassword}">
                 <!--</div>-->
+                <input class="form-control" th:type="hidden" id="roles" name="roles"  th:value="*{roles}">
+                <!--<select  id="roles" name="roles" th:field="*{roles.}" >-->
+                    <!--<option th:value="${roles.s}"></option>-->
 
-                <!--&lt;!&ndash;<div >&ndash;&gt;-->
-                <!--<input class="input" type="text" name="username" placeholder="username">-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;<div >&ndash;&gt;-->
-                <!--<input class="input" type="password" name="password" placeholder="password">-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</select>-->
 
-                <!--&lt;!&ndash;<div >&ndash;&gt;-->
-                <!--<button class="input-btn" type="submit"  >Login</button>-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--<div >-->
+                <button class="input-btn" type="submit"  >Registration</button>
+                <!--</div>-->
                 <!--<a th:href="@{/login/registration}" class="color-a-reg"> or Registration</a>-->
 
-            <!--</form>-->
-        <!--</div>-->
-    <!--</div>-->
+            </form>
+        </div>
+    </div>
 
-<!--</div>-->
-<p>terwesfs</p>
+</div>
+
 </body>
 </body>
 </html>
