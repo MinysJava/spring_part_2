@@ -13,13 +13,13 @@ public class LoginController {
     public LoginController() {
     }
 
-//    @GetMapping("/myLogin")
-//    public String showMyLoginPage() {
-//        return "myLogin";
-//    }
-
     @GetMapping
     public String login() {
         return "myLogin";
+    }
+
+    @GetMapping("/registration")
+    public String reg() {
+        return "registration";
     }
 }

@@ -34,44 +34,44 @@
 <body>
 <nav th:replace="header.html :: header (activePage=${activePage})"/>
 
-<div class="container">
+<!--<div class="container">-->
 
-        <div class="widget subscribe-widget">
-            <div class="widget-title">
-                <h2 class="title">Log In</h2>
-            </div>
-            <div >
-                <form th:action="@{/products}" method="POST" >
+    <!--<div class="widget subscribe-widget">-->
+        <!--<div class="widget-title">-->
+            <!--<h2 class="title">Log In</h2>-->
+        <!--</div>-->
+        <!--<div >-->
+            <!--<form th:action="@{/products}" method="POST" >-->
 
-                                <div th:if="${param.error} != null">
-                                    <div >
-                                        Invalid username or password
-                                    </div>
-                                </div>
-                                <div th:if="${param.logout} != null">
-                                    <div >
-                                        You have been logged out.
-                                    </div>
-                                </div>
-
+                <!--<div th:if="${param.error} != null">-->
                     <!--<div >-->
-                        <input class="input" type="text" name="username" placeholder="username">
+                        <!--Invalid username or password-->
                     <!--</div>-->
+                <!--</div>-->
+                <!--<div th:if="${param.logout} != null">-->
                     <!--<div >-->
-                        <input class="input" type="password" name="password" placeholder="password">
+                        <!--You have been logged out.-->
                     <!--</div>-->
+                <!--</div>-->
 
-                        <!--<div >-->
-                            <button class="input-btn" type="submit"  >Login</button>
-                        <!--</div>-->
+                <!--&lt;!&ndash;<div >&ndash;&gt;-->
+                <!--<input class="input" type="text" name="username" placeholder="username">-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div >&ndash;&gt;-->
+                <!--<input class="input" type="password" name="password" placeholder="password">-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
+                <!--&lt;!&ndash;<div >&ndash;&gt;-->
+                <!--<button class="input-btn" type="submit"  >Login</button>-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--<a th:href="@{/login/registration}" class="color-a-reg"> or Registration</a>-->
 
-                </form>
-                <a th:href="@{/login/registration}" class="color-a-reg"> or Registration</a>
-            </div>
-        </div>
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
 
-</div>
+<!--</div>-->
+<p>terwesfs</p>
 </body>
 </body>
 </html>
