@@ -42,7 +42,19 @@ public class SecurityConfiguration {
         protected void configure(HttpSecurity http) throws Exception {
             http
                     .authorizeRequests()
-                    .antMatchers("/**").permitAll();
+                    .antMatchers("/**").permitAll()
+                    .antMatchers("/users/**").hasRole("ADMIN")
+                    .antMatchers("/**").authenticated()
+                    .and()
+                    .formLogin()
+                    .loginPage("/users/login_m")
+                    .loginProcessingUrl("/app/products")
+                    .defaultSuccessUrl("/products")
+                    .permitAll()
+                    .and()
+                    .logout()
+                    .permitAll()
+                    .logoutSuccessUrl("/products");
         }
     }
 }

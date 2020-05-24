@@ -30,6 +30,7 @@ public class UserController {
 
     @GetMapping
     public String allUsers(Model model) {
+        model.addAttribute("activePage", "Users");
         model.addAttribute("users", userService.findAll());
         return "users";
     }
@@ -50,7 +51,7 @@ public class UserController {
 
     @GetMapping("/login_m")
     public String showMyLoginPage() {
-        return "modern-login";
+        return "myLogin";
     }
 
     @PostMapping("/form")
