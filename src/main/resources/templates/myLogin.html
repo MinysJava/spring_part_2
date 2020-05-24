@@ -32,7 +32,7 @@
 
 </head>
 <body>
-<nav th:replace="header.html"/>
+<nav th:replace="header.html :: header (activePage=${activePage})"/>
 
 <div style="background-color: coral">
     <div id="loginbox" style="margin-top: 50px;" class="mainbox col-md-3 col-md-offset-2 col-sm-6 col-sm-offset-2">
@@ -41,7 +41,7 @@
                 <div class="panel-title">Sign In</div>
             </div>
             <div style="padding-top: 30px" class="panel-body">
-                <form th:action="@{/app/products}" method="POST" class="form-horizontal">
+                <form th:action="@{/products}" method="POST" class="form-horizontal">
                     <div class="form-group">
                         <div class="col-xs-15">
                             <div>

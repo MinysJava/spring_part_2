@@ -49,10 +49,7 @@ public class UserController {
         return "user_form";
     }
 
-    @GetMapping("/login_m")
-    public String showMyLoginPage() {
-        return "myLogin";
-    }
+
 
     @PostMapping("/form")
     public String newUser(@Valid UserRepr user, BindingResult result) {
