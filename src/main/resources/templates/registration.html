@@ -45,26 +45,14 @@
 
                 <input th:type="hidden" th:field="*{id}">
 
-                <!--<div >-->
                 <input class="input" type="text" name="username" placeholder="username" th:field="*{username}">
-                <!--</div>-->
-                <!--<div >-->
+
                 <input class="input" type="password" name="password" placeholder="password" th:field="*{password}">
-                <!--<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password don't match</p>-->
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password don't match</p>
 
                 <input class="input" type="password" name="password" placeholder="password" th:field="*{matchingPassword}">
-                <!--</div>-->
-                <input class="form-control" th:type="hidden" id="roles" name="roles"  th:value="*{roles}">
-                <!--<select  id="roles" name="roles" th:field="*{roles.}" >-->
-                    <!--<option th:value="${roles.s}"></option>-->
 
-                <!--</select>-->
-
-
-                <!--<div >-->
                 <button class="input-btn" type="submit"  >Registration</button>
-                <!--</div>-->
-                <!--<a th:href="@{/login/registration}" class="color-a-reg"> or Registration</a>-->
 
             </form>
         </div>

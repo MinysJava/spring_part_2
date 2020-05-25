@@ -41,14 +41,14 @@ public class LoginController {
     @PostMapping("/registration")
     public String newUser(@Valid UserRepr user, BindingResult result) {
         if (result.hasErrors()) {
-            return "user_form";
+            return "registration";
         }
         if (!user.getPassword().equals(user.getMatchingPassword())) {
             result.rejectValue("password", "", "Password not matching");
-            return "user_form";
+            return "registration";
         }
 
         userService.save(user);
-        return "redirect:/login";
+        return "redirect:/users";
     }
 }
