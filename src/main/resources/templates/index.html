@@ -42,18 +42,18 @@
 
 	<div style="display: flex; width: 30%; justify-content: space-around; margin-left: auto; margin-right: auto" >
 		<div >
-			<p>ID</p>
+			<h5 class="">ID</h5>
 			<a th:each="product : ${products_array}" th:href="@{/products/{id}(id = ${product.id})}" th:if="${products_array.hasContent()}" >
 				<p th:text="${product.id}"></p>
 			</a>
 			<p th:unless="${products_array.hasContent()}">no data</p>
 		</div>
 		<div>
-			<p>Title</p>
+			<h5>Title</h5>
 			<p th:each="product : ${products_array}" th:text="${product.title}"></p>
 		</div>
 		<div>
-			<p>Cost</p>
+			<h5>Cost</h5>
 			<p th:each="product : ${products_array}" th:text="${product.cost}"></p>
 		</div>
 	</div>

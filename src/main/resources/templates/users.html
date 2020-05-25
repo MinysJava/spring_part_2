@@ -37,23 +37,23 @@
 
 <h1 class="article-title text-center">User list</h1>
 
-<a th:href="@{/users/form}">Create user</a>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Username</th>
-    </tr>
 
-    <tr th:unless="${users.isEmpty()}" th:each="user : ${users}">
-        <td th:text="${user.id}"></td>
-        <td>
-            <a th:text="${user.username}" th:href="@{/users/{id}(id = ${user.id})}"></a>
-        </td>
-    </tr>
+<div style="display: flex; width: 20%; justify-content: space-around; margin-left: auto; margin-right: auto">
+    <div>
+        <div><h5>Id</h5></div>
+        <div th:unless="${users.isEmpty()}" th:each="user : ${users}" th:text="${user.id}"></div>
 
-    <tr th:if="${users.isEmpty()}">
-        <td colspan="4">No data</td>
-    </tr>
-</table>
+    </div>
+
+    <div  >
+        <div><h5>Username</h5></div>
+        <div th:unless="${users.isEmpty()}" th:each="user : ${users}" th:text="${user.username}" ></div>
+
+    </div>
+
+    <div th:if="${users.isEmpty()}">
+        <div >No data</div>
+    </div>
+</div>
 </body>
 </html>
