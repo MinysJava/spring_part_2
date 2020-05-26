@@ -21,7 +21,10 @@
                 <div class="header-links">
                     <ul>
                         <li sec:authorize="isAnonymous()"><a  th:href="@{/login}"><i class="fa fa-sign-in"></i> Login</a></li>
-                        <li sec:authorize="isAuthenticated()" > <form   th:action="@{logout}" method="post"  > <button type="submit" class="logout-btn">Logout </button></form></li>
+                        <li sec:authorize="isAuthenticated()" th:if="${activePage == 'Products' or activePage == 'Users' or activePage == 'Login'}" >
+                            <form   th:action="@{/logout}" method="post"  > <button type="submit" class="logout-btn">Logout </button></form></li>
+                        <li sec:authorize="isAuthenticated()" th:unless="${activePage == 'Products' or activePage == 'Users' or activePage == 'Login'}" >
+                            <form   th:action="@{../logout}" method="post"  > <button type="submit" class="logout-btn">Logout </button></form></li>
                     </ul>
                 </div>
 
