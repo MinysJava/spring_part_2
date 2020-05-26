@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<title>Magnews HTML Template</title>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CLato:300,400" rel="stylesheet">
+
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+
+		<!-- Owl Carousel -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/owl.carousel.css}" />
+		<link type="text/css" rel="stylesheet" th:href="@{/css/owl.theme.default.css}" />
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    </head>
+	<body>
+	<div th:replace="header.html :: header (activePage=${activePage})"/>
+
+	<h1 class="article-title" style="text-align: center; width: 30%; margin-left: auto; margin-right: auto;">Products</h1>
+
+
+
+
+	<div style="display: flex; width: 30%; justify-content: space-around; margin-left: auto; margin-right: auto" >
+		<div >
+			<h5 class="">ID</h5>
+			<a th:each="product : ${products_array}" th:href="@{/products/{id}(id = ${product.id})}" th:if="${products_array.hasContent()}" >
+				<p th:text="${product.id}"></p>
+			</a>
+			<p th:unless="${products_array.hasContent()}">no data</p>
+		</div>
+		<div>
+			<h5>Title</h5>
+			<p th:each="product : ${products_array}" th:text="${product.title}"></p>
+		</div>
+		<div>
+			<h5>Cost</h5>
+			<p th:each="product : ${products_array}" th:text="${product.cost}"></p>
+		</div>
+	</div>
+
+	<div class="article-pagination" style="display: flex; width: 30%; justify-content: space-around; margin-left: auto; margin-right: auto;">
+		<ul th:if="${products_array.hasContent()}" class="pagination">
+		<li><a th:href="@{/products(page = ${1}, size = ${products_array.size})}">&laquo;</a></li>
+
+		<li th:each="num : ${#numbers.sequence(1, products_array.totalPages)}"
+			th:classappend="${num == products_array.number + 1} ? 'active'">
+			<a th:href="@{/products(page = ${num}, size = ${products_array.size})}">[[${num}]]</a></li>
+
+		<li><a th:href="@{/products(page = ${products_array.totalPages}, size = ${products_array.size})}">&raquo;</a></li>
+		</ul>
+	</div>
+	</body>
+</html>

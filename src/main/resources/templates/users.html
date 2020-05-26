@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Magnews HTML Template</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CLato:300,400" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+
+    <!-- Owl Carousel -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/owl.carousel.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/owl.theme.default.css}" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div th:replace="header.html :: header (activePage=${activePage})"/>
+<div class="container">
+    <div class="article article-post">
+        <h1 class="article-title text-center">User list</h1>
+        <div class="article-body">
+            <ul class="article-info">
+                <li class="article-category">
+                    <a th:href="@{/users/form}"  >Create user</a>
+                </li>
+            </ul>
+        </div>
+        <div style="display: flex; width: 20%; justify-content: space-around; margin-left: auto; margin-right: auto">
+            <div>
+                <div><h5>Id</h5></div>
+                <div th:unless="${users.isEmpty()}" th:each="user : ${users}" th:text="${user.id}"></div>
+
+            </div>
+
+            <div  >
+                <div><h5>Username</h5></div>
+                <div  th:unless="${users.isEmpty()}" th:each="user : ${users}">   <a th:text="${user.username}" th:href="@{/users/{id}(id = ${user.id})}">Username</a></div>
+
+            </div>
+
+            <div th:if="${users.isEmpty()}">
+                <div >No data</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
