@@ -27,12 +27,14 @@ public class LoginController {
     }
 
     @GetMapping
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute("activePage", "Login");
         return "myLogin";
     }
 
     @GetMapping("/registration")
     public String reg(Model model) {
+        model.addAttribute("activePage", "Reg");
         model.addAttribute("user", new UserRepr());
         model.addAttribute("roles", roleRepository.findById(1L));
         return "registration";

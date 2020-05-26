@@ -33,7 +33,7 @@
 
 </head>
 <body>
-<nav th:replace="header.html :: header (activePage=${activePage})"/>
+<div th:replace="header.html :: header (activePage=${activePage})"/>
 <div class="container">
     <div class="article article-post">
         <h1 class="article-title text-center">User list</h1>
@@ -53,7 +53,7 @@
 
             <div  >
                 <div><h5>Username</h5></div>
-                <div th:each="user : ${users}">   <a th:text="${user.username}" th:href="@{/users/{id}(id = ${user.id})}">Username</a></div>
+                <div  th:unless="${users.isEmpty()}" th:each="user : ${users}">   <a th:text="${user.username}" th:href="@{/users/{id}(id = ${user.id})}">Username</a></div>
 
             </div>
 

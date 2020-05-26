@@ -12,17 +12,17 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CLato:300,400" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{../css/bootstrap.min.css}"/>
 
     <!-- Owl Carousel -->
-    <link type="text/css" rel="stylesheet" th:href="@{/css/owl.carousel.css}" />
-    <link type="text/css" rel="stylesheet" th:href="@{/css/owl.theme.default.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{../css/owl.carousel.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{../css/owl.theme.default.css}" />
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{../css/font-awesome.min.css}">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{../css/style.css}"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,39 +33,41 @@
 
 </head>
 <body>
-<nav th:replace="header.html :: header (activePage=${activePage})"/>
+<div th:replace="header.html :: header (activePage=${activePage})"/>
 
 
-<h1>Person</h1>
+<div class="container">
+    <h1>Person</h1>
 
-<form th:action="@{/users/form}" th:object="${user}" method="post">
-    <input th:type="hidden" th:field="*{id}">
-    <p>Username:</p>
-    <p>
-        <input type="text" th:field="*{username}">
-    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Password don't match</p>
-    </p>
+    <form th:action="@{/users/form}" th:object="${user}" method="post">
+        <input th:type="hidden" th:field="*{id}">
+        <p>Username:</p>
+        <p>
+            <input type="text" th:field="*{username}">
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Password don't match</p>
+        </p>
 
-    <p>Password:</p>
-    <p>
-        <input type="password" th:field="*{password}">
-    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password don't match</p>
-    </p>
+        <p>Password:</p>
+        <p>
+            <input type="password" th:field="*{password}">
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password don't match</p>
+        </p>
 
-    <p>Repeat password:</p>
-    <p><input type="password" th:field="*{matchingPassword}"></p>
+        <p>Repeat password:</p>
+        <p><input type="password" th:field="*{matchingPassword}"></p>
 
-    <p>Roles:</p>
-    <p>
-        <select multiple class="form-control" id="roles" th:field="*{roles}" required>
-            <option th:each="role : ${roles}"
-                    th:text="${role.name}"
-                    th:value="${role.id}"
-                    th:selected="${user.roles?.contains(role)}"></option>
-        </select>
-    </p>
-    <button type="submit">Save</button>
-</form>
+        <p>Roles:</p>
+        <p>
+            <select multiple class="form-control" id="roles" th:field="*{roles}" required style="width: 250px">
+                <option th:each="role : ${roles}"
+                        th:text="${role.name}"
+                        th:value="${role.id}"
+                        th:selected="${user.roles?.contains(role)}"></option>
+            </select>
+        </p>
+        <button type="submit" class="input-btn">Save</button>
+    </form>
+</div>
 
 </body>
 </html>

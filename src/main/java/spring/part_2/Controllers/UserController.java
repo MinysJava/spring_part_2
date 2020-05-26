@@ -44,6 +44,7 @@ public class UserController {
 
     @GetMapping("/form")
     public String formUser(Model model) {
+        model.addAttribute("activePage", "User_form");
         model.addAttribute("user", new UserRepr());
         model.addAttribute("roles", roleRepository.findAll());
         return "user_form";

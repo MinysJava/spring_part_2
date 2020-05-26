@@ -5,7 +5,6 @@ import spring.part_2.unit.User;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.Collection;
-import java.util.Set;
 
 public class UserRepr {
 
