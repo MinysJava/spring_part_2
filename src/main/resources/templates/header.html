@@ -43,8 +43,8 @@
 
                 <div class="header-links">
                     <ul>
-                        <li><a th:href="@{/login}"><i class="fa fa-sign-in"></i> Login</a></li>
-                        <li > <form  th:action="@{logout}" method="post"  > <button type="submit" class="logout-btn">Logout </button></form></li>
+                        <li sec:authorize="isAnonymous()"><a  th:href="@{/login}"><i class="fa fa-sign-in"></i> Login</a></li>
+                        <li sec:authorize="isAuthenticated()" > <form   th:action="@{logout}" method="post"  > <button type="submit" class="logout-btn">Logout </button></form></li>
                     </ul>
                 </div>
 
@@ -72,7 +72,7 @@
                 </div>
                 <ul class="main-nav nav navbar-nav">
                     <li th:classappend="${activePage == 'Products'} ? 'active'"><a th:href="@{/products}" >PRODUCTS</a></li>
-                    <li  th:classappend="${activePage == 'Users'} ? 'active'"><a th:href="@{/users}">USERS</a></li>
+                    <li sec:authorize="hasRole('ADMIN')" th:classappend="${activePage == 'Users'} ? 'active'"><a th:href="@{/users}">USERS</a></li>
                 </ul>
             </nav>
         </div>

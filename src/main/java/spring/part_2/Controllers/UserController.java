@@ -55,18 +55,18 @@ public class UserController {
         return "redirect:/login";
     }
 
-//    @PostMapping("/form")
-//    public String newUser(@Valid UserRepr user, BindingResult result) {
-//        if (result.hasErrors()) {
-//            return "user_form";
-//        }
-//        if (!user.getPassword().equals(user.getMatchingPassword())) {
-//            result.rejectValue("password", "", "Password not matching");
-//            return "user_form";
-//        }
-//
-//        userService.save(user);
-//        return "redirect:/users";
-//    }
+    @PostMapping("/form")
+    public String newUser(@Valid UserRepr user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "user_form";
+        }
+        if (!user.getPassword().equals(user.getMatchingPassword())) {
+            result.rejectValue("password", "", "Password not matching");
+            return "user_form";
+        }
+
+        userService.save(user);
+        return "redirect:/users";
+    }
 }
 

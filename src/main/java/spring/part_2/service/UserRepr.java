@@ -4,6 +4,7 @@ import spring.part_2.unit.Role;
 import spring.part_2.unit.User;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Collection;
 import java.util.Set;
 
 public class UserRepr {
@@ -19,7 +20,7 @@ public class UserRepr {
     @NotEmpty
     private String matchingPassword;
 
-    private Set<Role> roles;
+    private Collection<Role> roles;
 
     public UserRepr() {
     }
@@ -63,11 +64,11 @@ public class UserRepr {
         this.matchingPassword = matchingPassword;
     }
 
-    public Set<Role> getRoles() {
+    public Collection<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
 

@@ -1,6 +1,7 @@
 package spring.part_2.unit;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
@@ -17,7 +18,7 @@ public class Role{
     private String name;
 
     @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+    private Collection<User> users;
 
     public Role() {
     }
@@ -42,11 +43,11 @@ public class Role{
         this.name = name;
     }
 
-    public Set<User> getUsers() {
+    public Collection<User> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(Collection<User> users) {
         this.users = users;
     }
 

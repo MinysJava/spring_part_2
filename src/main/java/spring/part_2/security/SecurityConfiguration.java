@@ -42,25 +42,24 @@ public class SecurityConfiguration {
         protected void configure(HttpSecurity http) throws Exception {
             http
                     .authorizeRequests()
-//                    .antMatchers("/css/*").permitAll()
-//                    .antMatchers("/fonts/*").permitAll()
-//                    .antMatchers("/img/*").permitAll()
-//                    .antMatchers("/js/*").permitAll()
-                    .antMatchers("/**").permitAll();
-//                    .antMatchers("/products/**").permitAll()
-//                    .antMatchers("/login/**").permitAll()
-//                    .antMatchers("/users/**").hasRole("ADMIN")
-//                    .antMatchers("/**").authenticated()
-//                    .and()
-//                    .formLogin()
-//                    .loginPage("/login")
-//                    .loginProcessingUrl("/products")
-//                    .defaultSuccessUrl("/products")
-//                    .permitAll()
-//                    .and()
-//                    .logout()
-//                    .permitAll()
-//                    .logoutSuccessUrl("/products");
+                    .antMatchers("/css/*").permitAll()
+                    .antMatchers("/fonts/*").permitAll()
+                    .antMatchers("/img/*").permitAll()
+                    .antMatchers("/js/*").permitAll()
+                    .antMatchers("/products/**").permitAll()
+                    .antMatchers("/login/**").permitAll()
+                    .antMatchers("/users/**").hasRole("ADMIN")
+                    .antMatchers("/**").authenticated()
+                    .and()
+                    .formLogin()
+                    .loginPage("/login")
+                    .loginProcessingUrl("/products")
+                    .defaultSuccessUrl("/products")
+                    .permitAll()
+                    .and()
+                    .logout()
+                    .permitAll()
+                    .logoutSuccessUrl("/products");
         }
     }
 }
